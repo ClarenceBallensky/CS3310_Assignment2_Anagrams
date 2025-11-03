@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.text.Normalizer;
 
 
 public class ProcessText
@@ -84,8 +85,14 @@ public class ProcessText
      */
     public static String sortCharacters(String word)
     {
-        String lowercaseWord = word.toLowerCase();
-        char[] wordChars =  lowercaseWord.toCharArray(); //create a character array of each character in the word
+
+        //normalizer decomposes accented characters into their base character + diacritical mark
+        //e.g. "ä" becomes "a\u0308"
+        String normalized = Normalizer.normalize(word, Normalizer.Form.NFD);
+        normalized = normalized.replaceAll("\\p{M}", ""); //remove diacritical marks
+        normalized = normalized.toLowerCase(); //make all characters lowercase
+
+        char[] wordChars =  normalized.toCharArray(); //create a character array of each character in the word
         Arrays.sort(wordChars); //sort the characters from the word alphabetically
         return new String(wordChars); //return a new string of the alphabetically sorted characters from the word
     }
