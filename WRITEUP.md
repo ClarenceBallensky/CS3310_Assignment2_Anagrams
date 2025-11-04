@@ -1,4 +1,4 @@
-## Write Up
+## Calculating Time Efficiency
 
 n = total number of words
 m = average length of word
