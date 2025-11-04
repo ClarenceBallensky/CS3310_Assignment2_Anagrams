@@ -25,7 +25,7 @@ meats, steam, teams
 This program ignores...
 * distinctions between upercase and lowercase numbers. For example, “Elvis” and “lives” will be identified as
 anagrams of one another.
-* punctuation, including apostrophes. For example, "b'est" and "be'ts" will be identified as anagrams of one another.
+* punctuation, including apostrophes. For example, "t'ar", "ra't", and "art" will be identified as anagrams of one another.
 * accent markers. For example, "cät" and "act" will be identified as anagrams of one another.
 * duplicates. For example, if there are two instances of "bake" in the input file, "bake" will appear twice in its respective anagram group in the output file. 
 
